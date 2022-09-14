@@ -19,11 +19,11 @@ public class RestApiController {
         String url = "https://api.ipify.org?format=json";
         RestTemplate restTemplate = new RestTemplate();
         Object jSonIP = restTemplate.getForObject(url, Object.class);
-
+        
         String ipAddress = restTemplate.getForObject(url, String.class);
 
+        // Parse the IP address from the response
         JSONObject jo = new JSONObject(ipAddress);
-
         System.out.println(jo.toString());
         String quoteAuthor = jo.getString("ip");
         System.out.println(quoteAuthor);
