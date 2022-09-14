@@ -1,6 +1,6 @@
 /*
  * Name: Andrew Van Es
- * Project: Test anduse API's
+ * Project: Test and use API's
  * Date Modified: 09/14/2022
  * Assignment 2 - API
  *
