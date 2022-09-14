@@ -1,3 +1,15 @@
+/*
+ * Name: Andrew Van Es
+ * Project: Test anduse API's
+ * Date Modified: 09/14/2022
+ * Assignment 2 - API
+ *
+ * Integrity Policy Statement
+ * My words and actions will reflect Academic Integrity
+ * I will not cheat or lie or steal in academic matters
+ * I will promote integrity in the UNCG community.
+ * Student’s Signature: Andrew Van Es    Date: 09/14/2022
+ */
 package com.csc340.RestAPI;
 
 import org.json.JSONObject;
@@ -16,16 +28,16 @@ public class RestApiController {
 
     @GetMapping("/ip")
     public Object getThing() {
-        String url = "https://api.ipify.org?format=json";
-        RestTemplate restTemplate = new RestTemplate();
-        Object jSonIP = restTemplate.getForObject(url, Object.class);
-        
-        String ipAddress = restTemplate.getForObject(url, String.class);
+        String address = "https://api.ipify.org?format=json";
+        RestTemplate restTemp = new RestTemplate();
+        Object jSonIP = restTemp.getForObject(address, Object.class);
+
+        String ipAddress = restTemp.getForObject(address, String.class);
 
         // Parse the IP address from the response
-        JSONObject jo = new JSONObject(ipAddress);
-        System.out.println(jo.toString());
-        String quoteAuthor = jo.getString("ip");
+        JSONObject jSONObj = new JSONObject(ipAddress);
+        System.out.println(jSONObj.toString());
+        String quoteAuthor = jSONObj.getString("ip");
         System.out.println(quoteAuthor);
 
         return jSonIP;
