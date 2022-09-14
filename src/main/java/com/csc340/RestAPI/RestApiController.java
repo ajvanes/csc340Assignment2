@@ -28,17 +28,17 @@ public class RestApiController {
 
     @GetMapping("/ip")
     public Object getThing() {
-        String address = "https://api.ipify.org?format=json";
+        String siteUrl = "https://api.ipify.org?format=json";
         RestTemplate restTemp = new RestTemplate();
-        Object jSonIP = restTemp.getForObject(address, Object.class);
+        Object jSonIP = restTemp.getForObject(siteUrl, Object.class);
 
-        String ipAddress = restTemp.getForObject(address, String.class);
+        String ip = restTemp.getForObject(siteUrl, String.class);
 
         // Parse the IP address from the response
-        JSONObject jSONObj = new JSONObject(ipAddress);
+        JSONObject jSONObj = new JSONObject(ip);
         System.out.println(jSONObj.toString());
-        String quoteAuthor = jSONObj.getString("ip");
-        System.out.println(quoteAuthor);
+        String ipAddress = jSONObj.getString("ip");
+        System.out.println(ipAddress);
 
         return jSonIP;
     }
